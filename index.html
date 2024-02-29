@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Météo&Inondation</title>
+    <link rel="icon" href="pluie.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700&family=Heebo:wght@300;400&family=Josefin+Sans:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+         :root {
+            --primaryColor: red;
+            --secondarColor: #f7bcf7;
+            --lightColor: #ffffff;
+            --bgcolor-1: #171a1c;
+            --bgcolor-2: #22282a;
+            --paddin: 8%;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-family: 'Almarai', sans-serif;
+            font-size: 16px;
+            color: var(--lightColor);
+        }
+        
+        .home {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.863), rgba(13, 13, 17, 0.918)), url('./pexels-syed-qaarif-andrabi-10999526.jpg');
+            background: linear-gradient(45deg, rgba(0, 0, 0, 0.562), rgba(2, 2, 20, 0.432)), url('./pexels-syed-qaarif-andrabi-10999526.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        p {
+            text-align: justify;
+        }
+        
+        samp {
+            color: var(--primaryColor);
+        }
+        
+        .home h2 {
+            font-size: 2.2rem;
+            letter-spacing: 0.12rem;
+            cursor: pointer;
+        }
+        
+        nav {
+            padding-top: 2.7rem;
+            padding-left: var(--paddin);
+            padding-right: var(--paddin);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul li {
+            list-style-type: none;
+            display: inline-block;
+            margin: 1rem 1.5rem;
+        }
+        
+        nav ul li a {
+            color: var(--bgcolor-1);
+            text-decoration: none;
+            text-transform: capitalize;
+            transition: 0.4s;
+        }
+        
+        nav ul li:first-child a {
+            border-bottom: 2px solid red;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primaryColor);
+        }
+        
+        .btn {
+            background-color: var(--primaryColor);
+            color: var(--lightColor);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.20rem 1.10rem;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            transition: 0.4s;
+        }
+        
+        .btn:hover {
+            background: transparent;
+            border: 1px solid var(--primaryColor)
+        }
+        
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+        
+        .container-texter {
+            text-align: center;
+        }
+        
+        .home h1 {
+            font-size: 4.65rem;
+            margin: 1.7rem 0;
+        }
+        
+        .home h3 {
+            font-size: 3.5rem;
+        }
+        
+        .home h4 {
+            font-size: 3.25rem;
+        }
+        
+        .social {
+            margin-top: 3.5rem;
+        }
+        
+        .social img {
+            margin-right: 2rem;
+            width: 2.5rem;
+            transition: 0.4s;
+        }
+        
+        .social img:hover {
+            transform: scale(1.2);
+        }
+        
+        .ContactezNous {
+            margin-top: 3.5rem;
+        }
+        
+        .ContactezNous img {
+            margin-right: 2rem;
+            width: 2.5rem;
+            transition: 0.4s;
+        }
+        
+        .ContactezNous img:hover {
+            transform: scale(1.2);
+        }
+        
+        .container-images {
+            margin-top: 3.5rem;
+        }
+        
+        .container-images img {
+            margin-right: 2rem;
+            width: 2.5rem;
+            transition: 0.4s;
+        }
+        
+        .container-images img:hover {
+            transform: scale(1.1);
+        }
+        
+        .about {
+            background-color: rgb(12, 12, 12);
+            padding: 0 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        
+        .about .container-images {
+            width: 39%;
+        }
+        
+        .about .container-images img {
+            width: 90%;
+        }
+        
+        .about .container-texts {
+            width: 37%;
+        }
+        
+        .about p {
+            color: blanchedalmond;
+            letter-spacing: 0.3px;
+            line-height: 1.30rem;
+            font-size: 1rem;
+        }
+        
+        .about h1 {
+            font-size: 40px;
+        }
+        
+        .surmoi {
+            background-color: rgba(14, 13, 13, 0.973);
+            padding: 0 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        
+        .surmoi .container-images {
+            width: 30%;
+        }
+        
+        .surmoi .container-images img {
+            width: 90%;
+        }
+        
+        .surmoi .container-texts {
+            width: 35%;
+        }
+        
+        .surmoi p {
+            color: rgb(228, 228, 228);
+            letter-spacing: 1px;
+            line-height: 1.5rem;
+            font-size: 1rem;
+        }
+        
+        .surmoi h1 {
+            font-size: 40px;
+        }
+        
+        .contact {
+            background-color: rgb(12, 12, 12);
+            padding: 0 0.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        
+        .contact .ContactezNous h1 {
+            font-size: 40px;
+        }
+        
+        .contact .email h1 {
+            font-size: 30px;
+        }
+        
+        .contact .ContactezNous {
+            width: 35%;
+        }
+        
+        .contact p {
+            color: blanchedalmond;
+            letter-spacing: 0.3px;
+            line-height: 1.30rem;
+            font-size: 1rem;
+        }
+        
+        input,
+        textarea {
+            color: #1d1d1d;
+            color: black;
+            background-color: #efefef;
+            font-family: inherit;
+            font-size: inherit;
+            margin-right: 6px;
+            margin-bottom: 6px;
+            padding: 13px;
+            border: none;
+            border-radius: 6px;
+            outline: none;
+        }
+        
+        button {
+            color: white;
+            background-color: red;
+            font-family: inherit;
+            font-size: inherit;
+            margin-right: 20px;
+            margin-bottom: 8px;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 0.20rem 1.10rem;
+            border-radius: 7px;
+            border: 1px solid transparent;
+            transition: 0.4s;
+        }
+        
+        button:hover {
+            background: transparent;
+            border: 1px solid var(--primaryColor)
+        }
+    </style>
+</head>
+
+<body>
+    <section class=" home ">
+        <nav>
+            <h2>Météo<samp>Inondation</samp></h2>
+            <ul>
+                <li><a href="home.html ">home</a> </li>
+                <li> <a href="#about ">A propos</a> </li>
+                <li>
+                    <a href="#surmoi ">Sur moi</a>
+                </li>
+                <li> <a href="#contact ">contact</a> </li>
+            </ul>
+            <a href="http://localhost/pj_php/login.php " class="btn ">Connexion</a>
+        </nav>
+        <div class="content ">
+            <div class="container-texter ">
+                <h4>Bonjour !</h4>
+
+                <h1>Bienvenue sur notre <samp> site web</samp> </h1>
+                <h3> <samp>Météo&</samp>risque d'inondation
+                </h3>
+                <div class="social ">
+                    <a href="# "><img src="facebook.png " alt=" "></a>
+
+                    <a href="https://www.instagram.com/meteo_inondation/" target="_blank"><img src="insagram.png " alt=" "></a>
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="about " class="about ">
+        <div class="container-images ">
+            <img src="about us .png " alt=" ">
+        </div>
+        <div class="container-texts ">
+
+            <h1> <samp>A Propos</samp></h1>
+
+            <p>Bienvenue sur Meteo Inondation - votre source de prévisions météorologiques en temps réel, avec des prévisions pour les 4 prochains jours et des estimations horaires. Notre site vous permet de rester informé(e) des conditions météorologiques
+                actuelles, ainsi que des risques potentiels d'inondation dans votre région. Grâce à notre fonctionnalité de localisation, vous recevrez des informations précises adaptées à votre emplacement, que vous soyez chez vous ou en voyage dans
+                une autre ville. Préparez-vous aux conditions climatiques changeantes et planifiez vos activités en toute sécurité. Vous pouvez également effectuer une recherche par nom de ville pour obtenir des prévisions détaillées, que vous soyez un
+                habitant ou un voyageur. Meteo Inondation est votre compagnon météo fiable, vous permettant de prendre des décisions éclairées où que vous soyez. Soyez prêt(e) face aux aléas météorologiques avec notre site intuitif et facile à utiliser.
+            </p>
+
+        </div>
+
+    </section>
+    <section id="surmoi " class="surmoi ">
+        <div class="container-texts ">
+
+            <h1> Sur <samp>Moi</samp></h1>
+
+            <p>
+                Je suis Ismail El Atifi, un étudiant en 2ème année de classe préparatoire en technologie de l'information à l'école Sup MTI. Fortement passionné par le développement depuis 3 ans, j'ai acquis une solide expérience dans ce domaine. Je suis spécialisé dans
+                la création de sites web modernes et fonctionnels en utilisant des langages de programmation tels que HTML, CSS, JavaScript et PHP.
+            </p>
+
+        </div>
+        <div class="container-images ">
+            <img src="Programming.png " alt=" ">
+        </div>
+
+
+    </section>
+    <section id="contact " class="contact ">
+
+
+
+
+        <div class="ContactezNous">
+
+            <h1> Contactez <samp>Nous</samp></h1>
+            <p>Nous sommes impatients de vous entendre ! Si vous avez des questions, des commentaires ou des préoccupations, notre équipe est là pour vous aider. Pour nous contacter, vous avez plusieurs options : vous pouvez remplir notre formulaire pour
+                envoyer un email en ligne, nous appeler au [+212 6 11 22 33 44] ou nous envoyer un e-mail à [issmailtf18@gmail.com].
+            </p><br>
+            <a href="# "><img src="facebook.png " alt=" "></a>
+            <a href="# "><img src="insagram.png " alt=" "></a>
+            <a href="# "><img src="whatsapp_.png" alt=" "></a><br><br><br><br><br><br>
+        </div>
+        <div class="email">
+            <form class="center_absolute display_grid" action="http://localhost/pj_php/email.php" id="email" method="post">
+                <h1>Envoyer un <samp>e-mail</samp></h1>
+
+                <input class="w_22_rem margin_bottom_1_rem" type="text" name="name" placeholder="Nom" autocomplete="off"><br><br>
+                <input class="w_22_rem margin_bottom_1_rem" type="email" name="email" placeholder="Email" autocomplete="off"><br><br>
+                <input class="w_22_rem margin_bottom_1_rem" type="text" name="subject" placeholder="Sujet" autocomplete="off"><br><br>
+                <textarea class="w_22_rem margin_bottom_1_rem" name="message" placeholder="Message..."></textarea>
+                <div class="primary-checkbox-container margin_bottom_2_rem">
+
+                    <div class="primary-checkbox-description color_black font_size_small">
+                        <a class="font_size_small color_primary"></a>
+                    </div>
+                </div>
+                <button class="primary-button background_color_primary font_size_medium color_white border_radius_secondary" type="submit" name="send">
+                    envoyer <i class="fa-solid fa-paper-plane primary-button-icon color_white"></i>
+            </button>
+            </form>
+        </div>
+
+
+    </section>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/rizalcss@2.1.0/js/components.min.js " integrity="sha256-3UCSBV90gv8A+IA1iZst64qLbw7u9y2Y6JbfRa21tKw=" crossorigin=" anonymous "></script>
+
+
+
+
+    <script>
+        document.querySelector('a[href="#about "]').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            var aboutSection = document.getElementById('about ');
+            aboutSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        document.querySelector('a[href="#surmoi "]').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            var aboutSection = document.getElementById('surmoi ');
+            aboutSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+        document.querySelector('a[href="#contact "]').addEventListener('click', function(event) {
+            event.preventDefault();
+
+            var aboutSection = document.getElementById('contact ');
+            aboutSection.scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
